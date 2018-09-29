@@ -28,8 +28,8 @@ class App extends Component {
             <select onChange={this.onSelect}>
                   <option value="dau">Daily</option>
                   <option value="wau">Weekly</option>
-          <PeerioPieChart />
-        </div>
+                  <option value="mau">Monthly</option>
+            </select>
           </div>
           {this.chart}
         <div style={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}>

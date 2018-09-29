@@ -117,7 +117,7 @@ export default class PeerioPieChart2 extends Component {
     const { data02 } = this.state;
 
     return (
-        <div>
+        <div class="App">
         <div style={{ 
             alignContent: 'center',
             width: 150,
@@ -142,13 +142,6 @@ export default class PeerioPieChart2 extends Component {
             <input type="text"  onChange={this.handleTotal} />
         </label>
         </form>
-        <a
-          href="javascript: void(0);"
-          className="btn update"
-          onClick={this.handleChangeData}
-        >
-          change data
-        </a>
         <br/>
         </div>
       <div className="pie-charts">

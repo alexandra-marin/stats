@@ -46,3 +46,8 @@ body {
 .pie-chart-wrapper {
   margin-left: -350px;
 }
+
+input {
+  margin:10px;
+  padding:3px;
+}

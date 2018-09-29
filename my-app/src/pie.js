@@ -118,7 +118,7 @@ export default class PeerioPieChart extends Component {
     const { data02 } = this.state;
 
     return (
-        <div>
+        <div class="App">
         <div>
         <form onSubmit={(event) => event.preventDefault()}>
         <label>
@@ -130,14 +130,6 @@ export default class PeerioPieChart extends Component {
             <input type="text"  onChange={this.handleTotal} />
         </label>
         </form>
-        <a
-          href="javascript: void(0);"
-          className="btn update"
-          onClick={this.handleChangeData}
-        >
-          change data
-        </a>
-        <br/>
         </div>
       <div className="pie-charts">
         <div className="pie-chart-wrapper">
