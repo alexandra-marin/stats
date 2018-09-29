@@ -43,10 +43,6 @@ const changeNumberOfData = (data) => {
         if(data.name === 'Daily') return parseInt(dau);
         if(data.name === 'Weekly') return parseInt(wau);
         if(data.name === 'Monthly') return parseInt(mau);
-        
-        if (typeof val === 'number') {
-          return parseInt(500);
-        }
   
         return changeNumberOfData(val);
       });
@@ -73,16 +69,7 @@ export default class PeerioPieChart extends Component {
 
   handleChangeData = () => {
     this.setState(() => _.mapValues(initialState, changeNumberOfData));
-    // this.setState(() => {
-    //     this.state.initialState = {
-    //         data02 : [
-    //             { name: 'Daily', value: this.mau },
-    //             { name: 'Weekly', value: this.wau },
-    //             { name: 'Monthly', value: this.dau }
-    //         ]
-    //     }
-    // });
-    // this.forceUpdate();
+    this.handleChangeAnimation();
   };
 
   handleChangeAnimation = () => {
@@ -112,8 +99,14 @@ export default class PeerioPieChart extends Component {
     const { data02 } = this.state;
 
     return (
-      <div className="pie-charts">
-      <form onSubmit={(event) => event.preventDefault()}>
+        <div>
+        <div style={{ 
+            alignContent: 'center',
+            width: 100,
+            alignSelf: 'center',
+            paddingLeft: 500
+        }}>
+        <form onSubmit={(event) => event.preventDefault()}>
         <label>
             DAU:
             <input type="text"  onChange={this.handleDau} />
@@ -135,11 +128,11 @@ export default class PeerioPieChart extends Component {
           change data
         </a>
         <br/>
-        <p>Simple PieChart</p>
+        </div>
+      <div className="pie-charts">
         <div className="pie-chart-wrapper">
-          <button onClick={this.handleChangeAnimation}>change animation</button>
+          {/* <button onClick={this.handleChangeAnimation}>change animation</button> */}
           <PieChart width={800} height={400}>
-            <Legend />
             <Pie
               data={data02}
               dataKey="value"
@@ -162,10 +155,12 @@ export default class PeerioPieChart extends Component {
                 Users
               </Label>
             </Pie>
+            <Legend wrapperStyle={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}/>
+
           </PieChart>
         </div>
 
-
+</div>
       </div>
     );
   }
