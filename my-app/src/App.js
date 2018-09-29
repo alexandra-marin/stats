@@ -4,6 +4,7 @@ import PeerioPieChart from './pie';
 import PeerioPieChart2 from './pie.1';
 import PeerioPieChart3 from './pie.2';
 import './App.css';
+import numbers from './number'
 
 class App extends Component {
   x = 'dau';
@@ -31,6 +32,9 @@ class App extends Component {
         </div>
           </div>
           {this.chart}
+        <div style={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}>
+            {JSON.stringify(numbers)}
+        </div>
       </div>
     );
   }
