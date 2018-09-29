@@ -25,8 +25,8 @@ let mau = 300;
 let total = 1000;
 
 let data02 = [
-    { name: 'Daily', value: dau },
-    { name: 'Total', value: total - dau }
+    { name: '❤️ active ❤️', value: dau },
+    { name: '💩 not 💩', value: total - dau }
 ];
 
 const initialState = { data02 };

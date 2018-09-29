@@ -27,8 +27,8 @@ let total = 1000;
 let data02 = [
     // { name: 'Daily', value: mau },
     // { name: 'Weekly', value: wau },
-    { name: 'Monthly', value: mau },
-    { name: 'Total', value: total - mau }
+    { name: '❤️ active ❤️', value: mau },
+    { name: '💩 not 💩', value: total - mau }
 ];
 
 const initialState = { data02 };
@@ -102,15 +102,19 @@ export default class PeerioPieChart2 extends Component {
 
   handleDau = (event) => {
     dau = event.target.value;
+    this.handleChangeData();
   }
   handleWau= (event) => {
     wau = event.target.value;
+    this.handleChangeData();
   }
   handleMau= (event) => {
     mau = event.target.value;
+    this.handleChangeData();
   }
   handleTotal= (event) => {
     total = event.target.value;
+    this.handleChangeData();
   }
 
   render () {
@@ -118,12 +122,7 @@ export default class PeerioPieChart2 extends Component {
 
     return (
         <div class="App">
-        <div style={{ 
-            alignContent: 'center',
-            width: 150,
-            alignSelf: 'center',
-            paddingLeft: 500
-        }}>
+        <div >
         <form onSubmit={(event) => event.preventDefault()}>
         {/* <label>
             DAU:

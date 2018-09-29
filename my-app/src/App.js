@@ -25,16 +25,15 @@ class App extends Component {
     return (
       <div class="bg-wrapper">
         <div className="App">
-            <select onChange={this.onSelect}>
-                  <option value="dau">Daily</option>
-                  <option value="wau">Weekly</option>
-                  <option value="mau">Monthly</option>
-            </select>
-          </div>
-          {this.chart}
-        <div style={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}>
-            {JSON.stringify(numbers)}
-        </div>
+            <div class="select">
+              <select onChange={this.onSelect}>
+                    <option value="dau">Daily</option>
+                    <option value="wau">Weekly</option>
+                    <option value="mau">Monthly</option>
+              </select>
+            </div>
+        </div>  
+        {this.chart}
       </div>
     );
   }
