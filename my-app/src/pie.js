@@ -25,7 +25,7 @@ let mau = 300;
 let total = 1000;
 
 let data02 = [
-    { name: '❤️ active ❤️', value: dau },
+    { name: '❤️ active ❤️ ', value: dau },
     { name: '💩 not 💩', value: total - dau }
 ];
 
@@ -81,7 +81,7 @@ export default class PeerioPieChart extends Component {
   handleChangeData = () => {
     this.setState(() => _.mapValues(initialState, changeNumberOfData));
     this.handleChangeAnimation();
-    numbers.push( {'Daily': dau, 'Weekly': wau, 'Monthly': mau,  'At': new Date()} );
+    numbers.push( { 'Daily': dau, 'Weekly': wau, 'Monthly': mau, 'At': new Date()} );
   };
 
   handleChangeAnimation = () => {
@@ -98,17 +98,12 @@ export default class PeerioPieChart extends Component {
   handleLeave = () => this.setState({ activeIndex: -1 });
 
   handleDau = (event) => {
+    
     dau = event.target.value;
+    console.log('dau', dau)
     this.handleChangeData();
   }
-  handleWau= (event) => {
-    wau = event.target.value;
-    this.handleChangeData();
-  }
-  handleMau= (event) => {
-    mau = event.target.value;
-    this.handleChangeData();
-  }
+  
   handleTotal= (event) => {
     total = event.target.value;
     this.handleChangeData();
@@ -116,6 +111,8 @@ export default class PeerioPieChart extends Component {
 
   render () {
     const { data02 } = this.state;
+    console.log('data', data02)
+
 
     return (
         <div class="App">
