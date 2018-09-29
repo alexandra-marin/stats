@@ -24,7 +24,9 @@ let mau = 300;
 let total = 1000;
 
 let data02 = [
-    { name: 'Daily', value: mau },
+    // { name: 'Daily', value: mau },
+    // { name: 'Weekly', value: wau },
+    { name: 'Monthly', value: dau },
     { name: 'Total', value: total }
 ];
 
@@ -62,7 +64,7 @@ const changeNumberOfData = (data) => {
     return data;
   }
 
-export default class PeerioPieChart extends Component {
+export default class PeerioPieChart2 extends Component {
     constructor() {
         super();
         this.numbers = [];
@@ -134,9 +136,17 @@ export default class PeerioPieChart extends Component {
             paddingLeft: 500
         }}>
         <form onSubmit={(event) => event.preventDefault()}>
-        <label>
+        {/* <label>
             DAU:
             <input type="text"  onChange={this.handleDau} />
+        </label>*/}
+        {/* <label> 
+            WAU:
+            <input type="text" onChange={this.handleWau} />
+        </label> */}
+        <label>
+            MAU:
+            <input type="text"  onChange={this.handleMau} />
         </label>
         <label>
             Total:
