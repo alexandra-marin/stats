@@ -5,16 +5,29 @@ import { scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
 import _ from 'lodash';
 
-const colors = scaleOrdinal(schemeCategory10).range();
+const colors = [
+    '#040B40',
+    '#02CEDB',
+    '#5461CC',
+    '#040B40',
+    '#040B40',
+    '#040B40',
+    '#040B40',
+    '#040B40',
+    '#040B40',
+    '#040B40',
+];
 
 let dau = 300;
 let wau = 300;
 let mau = 300;
+let total = 1000;
 
 const data02 = [
     { name: 'Daily', value: mau },
     { name: 'Weekly', value: wau },
-    { name: 'Monthly', value: dau }
+    { name: 'Monthly', value: dau },
+    { name: 'Total', value: dau }
 ];
 
 const initialState = { data02 };
@@ -52,6 +65,10 @@ const changeNumberOfData = (data) => {
   }
 
 export default class PeerioPieChart extends Component {
+    constructor() {
+        super();
+        this.numbers = [];
+    }
 
   static displayName = 'PieChartDemo';
 
@@ -70,6 +87,7 @@ export default class PeerioPieChart extends Component {
   handleChangeData = () => {
     this.setState(() => _.mapValues(initialState, changeNumberOfData));
     this.handleChangeAnimation();
+    this.numbers.push( {'Daily': dau, 'Weekly': wau, 'Monthly': mau,  'At': new Date()} );
   };
 
   handleChangeAnimation = () => {
@@ -94,6 +112,9 @@ export default class PeerioPieChart extends Component {
   handleMau= (event) => {
     mau = event.target.value;
   }
+  handleTotal= (event) => {
+    total = event.target.value;
+  }
 
   render () {
     const { data02 } = this.state;
@@ -102,7 +123,7 @@ export default class PeerioPieChart extends Component {
         <div>
         <div style={{ 
             alignContent: 'center',
-            width: 100,
+            width: 150,
             alignSelf: 'center',
             paddingLeft: 500
         }}>
@@ -119,6 +140,10 @@ export default class PeerioPieChart extends Component {
             MAU:
             <input type="text"  onChange={this.handleMau} />
         </label>
+        <label>
+            Total:
+            <input type="text"  onChange={this.handleTotal} />
+        </label>
         </form>
         <a
           href="javascript: void(0);"
@@ -131,7 +156,6 @@ export default class PeerioPieChart extends Component {
         </div>
       <div className="pie-charts">
         <div className="pie-chart-wrapper">
-          {/* <button onClick={this.handleChangeAnimation}>change animation</button> */}
           <PieChart width={800} height={400}>
             <Pie
               data={data02}
@@ -159,8 +183,10 @@ export default class PeerioPieChart extends Component {
 
           </PieChart>
         </div>
-
-</div>
+        </div>
+        <div style={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}>
+{JSON.stringify(this.numbers)}
+        </div>
       </div>
     );
   }
