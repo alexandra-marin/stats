@@ -4,6 +4,7 @@ import { PieChart, Pie, Legend, Cell, Tooltip, ResponsiveContainer, Sector,
 import { scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
 import _ from 'lodash';
+import numbers from './number'
 
 const colors = [
     '#040B40',
@@ -24,8 +25,8 @@ let mau = 300;
 let total = 1000;
 
 let data02 = [
-    { name: 'Daily', value: mau },
-    { name: 'Total', value: total }
+    { name: 'Daily', value: dau },
+    { name: 'Total', value: total - dau }
 ];
 
 const initialState = { data02 };
@@ -49,12 +50,12 @@ const changeNumberOfData = (data) => {
   
     if (typeof data === 'object') {
       return _.mapValues(data, val => {
-        
-        console.log(data, val, dau);
         if(data.name === 'Daily') return parseInt(dau);
         if(data.name === 'Weekly') return parseInt(wau);
         if(data.name === 'Monthly') return parseInt(mau);
-  
+        if (typeof val === 'number') {
+            return parseInt(total - dau);
+        }
         return changeNumberOfData(val);
       });
     }
@@ -63,11 +64,6 @@ const changeNumberOfData = (data) => {
   }
 
 export default class PeerioPieChart extends Component {
-    constructor() {
-        super();
-        this.numbers = [];
-    }
-
   static displayName = 'PieChartDemo';
 
   onPieEnter = (data, index, e) => {
@@ -85,7 +81,7 @@ export default class PeerioPieChart extends Component {
   handleChangeData = () => {
     this.setState(() => _.mapValues(initialState, changeNumberOfData));
     this.handleChangeAnimation();
-    this.numbers.push( {'Daily': dau, 'Weekly': wau, 'Monthly': mau,  'At': new Date()} );
+    numbers.push( {'Daily': dau, 'Weekly': wau, 'Monthly': mau,  'At': new Date()} );
   };
 
   handleChangeAnimation = () => {
@@ -173,9 +169,6 @@ export default class PeerioPieChart extends Component {
 
           </PieChart>
         </div>
-        </div>
-        <div style={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}>
-{JSON.stringify(this.numbers)}
         </div>
       </div>
     );
