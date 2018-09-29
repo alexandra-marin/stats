@@ -116,13 +116,6 @@ export default class PeerioPieChart3 extends Component {
     total = event.target.value;
   }
 
-  onSelect= (event) => {
-    console.log(event.target.value);
-    if(event.target.value === 'dau') data02 =  [
-        { name: 'Daily', value: mau },
-        { name: 'Total', value: total }
-    ];
-  }
 
   render () {
     const { data02 } = this.state;

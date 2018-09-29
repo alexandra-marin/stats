@@ -23,11 +23,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <select onChange={this.onSelect}>
-              <option value="dau">Daily</option>
-              <option value="wau">Weekly</option>
-              <option value="mau">Monthly</option>
-          </select>
+        <div  style={{paddingLeft: 530}}>
+            <select onChange={this.onSelect}>
+                  <option value="dau">Daily</option>
+                  <option value="wau">Weekly</option>
+                  <option value="mau">Monthly</option>
+              </select>
+          </div>
           {this.chart}
       </div>
     );
