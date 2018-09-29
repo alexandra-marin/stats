@@ -32,7 +32,6 @@
 }
 
 body {
-  
   padding:0;
   margin:0;
 }
@@ -42,4 +41,8 @@ body {
   background-repeat: repeat !important;
   background-size:cover !important;
   width: 100%;
+}
+
+.pie-chart-wrapper {
+  margin-left: -350px;
 }
