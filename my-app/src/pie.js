@@ -103,15 +103,19 @@ export default class PeerioPieChart extends Component {
 
   handleDau = (event) => {
     dau = event.target.value;
+    this.handleChangeData();
   }
   handleWau= (event) => {
     wau = event.target.value;
+    this.handleChangeData();
   }
   handleMau= (event) => {
     mau = event.target.value;
+    this.handleChangeData();
   }
   handleTotal= (event) => {
     total = event.target.value;
+    this.handleChangeData();
   }
 
   render () {
