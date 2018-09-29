@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   align-content: center;
-  width: 100px;
+  width: 33%;
+  margin: auto;
   align-self: center;
 }
 
@@ -31,10 +32,14 @@
 }
 
 body {
+  
+  padding:0;
+  margin:0;
+}
+
+.bg-wrapper {
   background-image: url("hackahunt_template.png") !important;
   background-repeat: repeat !important;
   background-size:cover !important;
   width: 100%;
-  padding:0;
-  margin:0;
 }

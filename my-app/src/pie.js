@@ -119,12 +119,7 @@ export default class PeerioPieChart extends Component {
 
     return (
         <div>
-        <div style={{ 
-            alignContent: 'center',
-            width: 150,
-            alignSelf: 'center',
-            paddingLeft: 500
-        }}>
+        <div>
         <form onSubmit={(event) => event.preventDefault()}>
         <label>
             DAU:
@@ -174,7 +169,7 @@ export default class PeerioPieChart extends Component {
           </PieChart>
         </div>
         </div>
-        <div style={{width: 200, alignSelf:'center', padding:0, alignContent:'center',  paddingLeft: 500}}>
+        <div >
 {JSON.stringify(this.numbers)}
         </div>
       </div>

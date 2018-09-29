@@ -22,13 +22,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div  style={{paddingLeft: 530}}>
+      <div class="bg-wrapper">
+        <div className="App">
             <select onChange={this.onSelect}>
                   <option value="dau">Daily</option>
                   <option value="wau">Weekly</option>
-                  <option value="mau">Monthly</option>
-              </select>
+          <PeerioPieChart />
+        </div>
           </div>
           {this.chart}
       </div>
